@@ -1,0 +1,13 @@
+
+* SYNOPSIS
+ruby-email-schedule-notice is a simple ruby script to read a schedule of tasks from file and send out a weekly reminder email (run by cron) to a list of emails.
+
+* DESCRITION
+
+
+* OPTIONS
+
+* FURTHER DOCUMENTATION
+
+* Reporting Bugs:
+Report bugs to ip@cbmny.us, thanks you.
