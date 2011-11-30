@@ -18,9 +18,9 @@ END_OF_MESSAGE
 	end
 end
 
-def translation_reminder ()
+def translation_reminder (FromEmail, ToEmail, SenderName, ScheduleFile)
      rows=[]; subject="Translation Reminder:"
-     file = File.open("translation_service.csv", 'r')
+     file = File.open(ScheduleFile, 'r')
      rowname=file.readline.split(",")
      while row=file.gets
          rows.push(row.split(","))
@@ -43,13 +43,14 @@ def translation_reminder ()
 		Any technical issues, please email: us \n\
 		In His grace. "
 
-	send_email("__@__", "Translation Reminder","__@__", "test",subject, t_msg)
+	send_email(FromEmail, "Translation Reminder",ToEmail, SenderName,subject, t_msg)
 
 	end
 
-def library_reminder()
-    groups=["group1", "group2", "group3", "group4", "group5"]
-    large_month_index=[1, 3, 5, 7, 8, 10,12]
+def library_reminder(FromEmail, ToEmail, SenderName, ScheduleGroup)
+    # groups=["group1", "group2", "group3", "group4", "group5"]
+     groups=ScheduleGroup
+     large_month_index=[1, 3, 5, 7, 8, 10,12]
 
     current=Time.new  # there might be a bug here, that we need to change the current date to the time.new+3 days since the reminder is sent out on Wednesday; 3 days before the serving Sunday
 
@@ -75,7 +76,7 @@ Dear,
 END_OF_LIB
 
     subject="Serving library this week -" + serve
-    send_email("__@__", "Library Serving Scheduler","__@__", "test",subject, l_msg)
+    send_email(FromEmail, "Library Serving Scheduler",ToEmail, SenderName,subject, l_msg)
 
 end
 
