@@ -1,17 +1,24 @@
 
-* SYNOPSIS
-ruby-email-schedule-notice is a simple ruby script to read a schedule of tasks from file and send out a weekly reminder email (run by cron) to a list of emails.
+# SYNOPSIS
 
-* DESCRITION
-Currently there are 2 different schedulers here:
-	  1. translation scheduler: based on a CSV file, which provide the type of translation, and who will translate
-	     the email reminder will send out the list for the date in the next 7 days
-	  2. library scheduler: based on a rotation for each week among 5 groups, then on the month with a 5th week, there's a special arrangement
+The project has been renamed to "schedule-reminder-email" from "ruby-email-schedule-notice", as I have switched to sending reminder email through Google Sheets.
 
-* OPTIONS
-  using translation_service.csv for translation schedules
+The new solution is simplier as it only depends on google sheet.
+https://www.google.com/sheets/about/
 
-* FURTHER DOCUMENTATION
+# DESCRITION
 
-* Reporting Bugs:
+To use "reminder" in google sheet, you can copy and paste the script "google_sheet_reminder.js" into your google sheet document, under "Tools/Script Editor". After saving the script, you may set it up to run at a regular (usually weekly) schedule to send out the reminder emails.
+
+
+# OPTIONS
+
+There are many options that you can tweak within the script. The usual needed tweaks are: 
+	- Set the row number of the 'header' in the sheet
+	- Set the start row number of your interested content
+	- Set the last column number of your interested content
+	...
+
+
+# Reporting Bugs:
 Report bugs to ip@cbmny.us, thanks you.
